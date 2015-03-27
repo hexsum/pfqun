@@ -79,6 +79,8 @@ Webqq::Qun - api for qq qun management,add member,remove member,set administrato
     |       `--Webqq::Qun::One  （继承自Webqq::Qun，单个群绑定的类）
     `--Webqq::Qun::Member       （继承自Webqq::Qun::Base，单个群成员绑定的类）
 
+=over 
+
 =item Webqq::Qun->new(debug=>0|1,qq=>xxx,pwd=>xxx)
 
 构造函数，提供了几个关键参数：

@@ -34,8 +34,8 @@ DEPENDENCIES:
 OPTIONAL DEPENDENCIES:
     
     MIME::Base64
-    Crypt::OpenSSL::RSA
-    Crypt::OpenSSL::Bignum
+    Crypt::RSA (或者 Crypt::OpenSSL::RSA Crypt::OpenSSL::Bignum)
+
 
 COPYRIGHT 和 LICENCE
 

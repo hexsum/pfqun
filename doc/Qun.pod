@@ -99,7 +99,16 @@ Webqq::Qun - api for qq qun management,add member,remove member,set administrato
 
 授权过程比较复杂，采用了和Webqq相同的MD5+RSA+BASE64的组合加密，计算需要花费一定的时间
 
-因此authorize的过程可能需要等待一会，请注意
+因此authorize的过程可能需要等待10s甚至更久，取决于你的运行环境
+
+你可以安装如下3个模块，程序会自动检查并进行调用，能够极大的提升RSA加密的计算速度
+
+L<MIME::Base64>
+
+L<Crypt::OpenSSL::RSA>
+
+L<Crypt::OpenSSL::Bignum>
+
 
 另外，如果授权所在的网络环境和平时你的QQ号登录环境变化较大，腾讯会认为你的帐号存在异地登录异常
 
@@ -257,7 +266,7 @@ L<http://qun.qq.com/member.html>
 
 =head1 AUTHOR
 
-Perfi, E<lt>sjdy521@163.comE<gt>
+sjdy521, E<lt>sjdy521@163.comE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

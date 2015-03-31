@@ -8,8 +8,9 @@ WriteMakefile(
     DISTNAME            => 'Webqq-Qun',
     LICENSE             => "perl",
     PREREQ_PM         => {
+        "JE"                    => 0,
         "JSON"                  => 0,
-        "Scalar::Util"          => 0,
+        "Digest::MD5"           => 0,
         "LWP::UserAgent"        => 0,
         "LWP::Protocol::https"  => 0,
     }, # e.g., Module::Name => 1.1

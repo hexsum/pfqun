@@ -3,7 +3,7 @@ use strict;
 use Carp;
 use File::Temp qw/tempfile/;
 use Webqq::Util qw(gen_url);
-use Webqq::Encryption qw(getEncryption);
+use Webqq::Encryption qw(pwd_encrypt pwd_encrypt_js);
 sub authorize {
     my $self = shift;
     $self->{_authorize}{appid}  = 715030901;
@@ -141,7 +141,7 @@ sub _login {
     my $self = shift;
     my $ua = $self->{ua};
     my $api = 'http://ptlogin2.qq.com/login';
-    my $p = getEncryption($self->{_authorize}{pwd},$self->{_authorize}{md5_salt},$self->{_authorize}{verifycode},1);
+    my $p = pwd_encrypt($self->{_authorize}{pwd},$self->{_authorize}{md5_salt},$self->{_authorize}{verifycode},1);
     my @query_string = (
         u                   => $self->{_authorize}{qq},
         verifycode          => $self->{_authorize}{verifycode},

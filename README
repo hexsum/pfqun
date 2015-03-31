@@ -25,10 +25,17 @@ INSTALLATION:
 
 DEPENDENCIES:
     
+    JE
     JSON
-    Scalar::Util
+    Digest::MD5
     LWP::UserAgent
     LWP::Protocol::https
+
+OPTIONAL DEPENDENCIES:
+    
+    MIME::Base64
+    Crypt::OpenSSL::RSA
+    Crypt::OpenSSL::Bignum
 
 COPYRIGHT 和 LICENCE
 

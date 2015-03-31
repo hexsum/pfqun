@@ -1,1 +1,6 @@
+2015-03-31 Webqq::Qun v1.1 release
+1）将腾讯的登录加密算法拆分成TEA/RSA/Base64/MD5等，支持使用Perl的RSA模块进行RSA计算，计算速度提升10倍以上
+2）支持自动检查系统是否已经安装Crypt::OpenSSL::Bignum/Crypt::OpenSSL::RSA/MiME::Base64模块来选择最优的计算方式
+3）修复少量文档错误
+
 2015-03-27 Webqq::Qun v1.0 release

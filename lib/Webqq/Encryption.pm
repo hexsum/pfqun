@@ -16,18 +16,13 @@ sub pwd_encrypt{
     my $h1 = pack "H*",lc $pwd;
     my $s2 = md5_hex($h1 . $md5_salt)  ;
     my $rsaH1= Webqq::Encryption::RSA::encrypt($h1);
-    print "rsaH1: $rsaH1\n";
     my $rsaH1Len = sprintf "%x",length($rsaH1)/2;
-    print "rsaH1Len: $rsaH1Len\n";
     my $hexVcode = Webqq::Encryption::TEA::strToBytes(uc $verifycode);
-    print "hexVcode: $hexVcode\n";
     my $vcodeLen = "000" . sprintf("%x",length($verifycode));
-    print "vcodeLen: $vcodeLen\n";
     while(length($rsaH1Len) < 4){
         $rsaH1Len = "0" . $rsaH1Len;
     }   
     
-    print "rsaH1Len: $rsaH1Len\n";
     my $saltPwd = Webqq::Encryption::TEA::encrypt($s2,$rsaH1Len . $rsaH1 . Webqq::Encryption::TEA::strToBytes($md5_salt) . $vcodeLen . $hexVcode);
     $saltPwd =~ tr/\/\+=/-*_/;
     return $saltPwd;

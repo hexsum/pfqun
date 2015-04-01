@@ -10,6 +10,7 @@ WriteMakefile(
     PREREQ_PM         => {
         "JE"                    => 0,
         "JSON"                  => 0,
+        "MIME::Base64"          => 0,
         "Digest::MD5"           => 0,
         "LWP::UserAgent"        => 0,
         "LWP::Protocol::https"  => 0,

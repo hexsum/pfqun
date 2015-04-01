@@ -1,7 +1,8 @@
 package Webqq::Encryption::TEA;
 use strict;
-use Carp;
 use JE;
+use Carp;
+use Webqq::Encryption::TEA::Perl;
 
 BEGIN{
     eval{require MIME::Base64;};
@@ -51,9 +52,7 @@ sub strToBytes{
     #croak $@ if $@;
     return $return;
 }
-sub encrypt {
-    my ($key,$data) = @_;
-    $key = join "",map {"\\x$_"} unpack "H2"x length($key),$key;
+sub _load_je{
     my $je;
     if(defined $Webqq::Encryption::TEA::_je ){
         $je = $Webqq::Encryption::TEA::_je ;
@@ -61,7 +60,7 @@ sub encrypt {
     else{
         my $javascript;
         if(defined $Webqq::Encryption::TEA::_javascript){
-            $javascript = $Webqq::Encryption::TEA::_javascript; 
+            $javascript = $Webqq::Encryption::TEA::_javascript;
         }
         else{
             local $/ = undef;
@@ -73,8 +72,30 @@ sub encrypt {
         $je->eval($javascript);
         croak "Webqq::Encryption::TEA load javascript error: $@\n" if $@;
         $Webqq::Encryption::TEA::_je = $je;
+    }    
+    return $je;
+}
+sub encrypt {
+    my ($key,$data) = @_;
+    #$key = join "",map {"\\x$_"} unpack "H2"x length($key),$key;
+    my $p = Webqq::Encryption::TEA::Perl::encrypt($key,$data);
+    if($p and $Webqq::Encryption::TEA::has_mime_base64){
+        return encode_base64($p,"");
     }
-
+    elsif($p){
+        my $je = _load_je();
+        $p = join "",map {"\\x$_"} unpack "H2"x length($p),$p;
+        $p = $je->eval(qq#
+            var tea = TEA();
+            tea.encode_base64('$p');
+        #);
+        if($p and !$@){
+            return $p;
+        }
+        else{
+            croak "Webqq::Encryption::TEA error: $@\n";
+        }
+    }
     #print qq#
     #    var tea = TEA();
     #    tea.initkey('$key');
@@ -83,6 +104,7 @@ sub encrypt {
     #    tea.initkey("");
     #    return(r);
     ##;
+    my $je = _load_je();
     my $js_code = $Webqq::Encryption::TEA::has_mime_base64?
                     "var r = tea.enWithoutBase64('$data')"
                 :   "var r = tea.enAsBase64('$data')"
@@ -101,6 +123,7 @@ sub encrypt {
         croak "Webqq::Encryption::TEA error: $@\n";
     }
 }
+
 1;
 __DATA__
 function TEA() {
@@ -452,6 +475,7 @@ function TEA() {
         bytesToStr: u,
         strToBytes: c,
         bytesInStr: v,
-        dataFromStr: n
+        dataFromStr: n,
+        encode_base64: d.encode
     }
 };

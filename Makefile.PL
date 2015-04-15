@@ -30,5 +30,5 @@ WriteMakefile(
       (
        #ABSTRACT_FROM  => 'lib/Webqq/Client.pm', # retrieve abstract from module
        ABSTRACT       => 'Webqq::Qun - api for qq qun management,support add member,remove member,set administrator,etc',
-       AUTHOR         => 'Perfi <sjdy521@163.com>') : ()),
+       AUTHOR         => 'sjdy521 <sjdy521@163.com>') : ()),
 );

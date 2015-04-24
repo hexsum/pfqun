@@ -14,15 +14,16 @@ WriteMakefile(
         "Digest::MD5"           => 0,
         "LWP::UserAgent"        => 0,
         "LWP::Protocol::https"  => 0,
+        "Webqq::Encryption"     => 0,
     }, # e.g., Module::Name => 1.1
     dist              => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean               => { FILES => 'Webqq-Qun-*' },
+    clean               => { FILES => 'Webqq-Qun-* MANIFEST' },
     META_MERGE => {
         resources => {     
             repository=>{
                 type    => 'git',
-                url     => 'git://github.com/sjdy521/Webqq-Qun.git',
-                web     =>  'https://github.com/sjdy521/Webqq-Qun',
+                url     => 'git://github.com/sjdy521/pfqun.git',
+                web     =>  'https://github.com/sjdy521/pfqun',
             },
         },
     },

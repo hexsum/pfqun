@@ -10,7 +10,7 @@ use LWP::Protocol::https;
 use Webqq::Qun::One;
 use Webqq::Qun::Member;
 
-our $VERSION = "1.3";
+our $VERSION = "1.4";
 sub new {
     my $class  = shift;
     my %p = @_;

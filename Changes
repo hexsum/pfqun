@@ -1,3 +1,8 @@
+2015-04-01 Webqq::Qun v1.4
+1）将Webqq::Encrypt单独发布
+2）修复Makefile.PL错误
+3）模块增加别名pfqun
+
 2015-04-01 Webqq::Qun v1.3
 1）新增Webqq::Encrypt::TEA::Perl模块，纯Perl实现腾讯TEA加密算法
 

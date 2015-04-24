@@ -1,4 +1,4 @@
-Webqq::Qun v1.4
+Webqq::Qun v1.5
 ========================
 腾讯提供了基于web的群管理方式，可以参见页面http://qun.qq.com/member.html
 
@@ -23,19 +23,18 @@ INSTALLATION:
    make test
    make install
 
+   推荐使用CPAN安装
+
+   cpan -i Webqq::Qun
+
 DEPENDENCIES:
    
-    JE 
-    JSON
-    Digest::MD5
-    LWP::UserAgent
-    LWP::Protocol::https
+   JSON
+   LWP::UserAgent
+   LWP::Protocol::https
+   Webqq::Encryption
 
-OPTIONAL DEPENDENCIES:
-    
-    Crypt::RSA (或者 Crypt::OpenSSL::RSA 和 Crypt::OpenSSL::Bignum )
-
-COPYRIGHT 和 LICENCE
+COPYRIGHT and LICENCE
 
 Copyright (C) 2014 by sjdy521
 

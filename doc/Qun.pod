@@ -74,7 +74,7 @@ Webqq::Qun - api for qq qun management,add member,remove member,set administrato
 
     .-+--Webqq::Qun::Base       （基类）
     | |--Webqq::Qun::Authorize  （提供授权功能）
-    | |--Webqq::Qun::Operate    （提供群成功操作相关的功能）
+    | |--Webqq::Qun::Operate    （提供群成员操作相关的功能）
     | `----Webqq::Qun           （继承自Webqq::Qun::Base Webqq::Qun::Operate Webqq::Qun::Authorize）
     |       `--Webqq::Qun::One  （继承自Webqq::Qun，单个群绑定的类）
     `--Webqq::Qun::Member       （继承自Webqq::Qun::Base，单个群成员绑定的类）
@@ -254,7 +254,7 @@ find_qun()/find_member()只能按固定的参数进行过滤，如果需要更�
 
 =head1 SEE ALSO
 
-L<https://github.com/sjdy521/Webqq-Qun>
+L<https://github.com/sjdy521/pfqun>
 
 L<Webqq::Client>
 

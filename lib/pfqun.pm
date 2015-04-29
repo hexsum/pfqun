@@ -1,4 +1,4 @@
 package pfqun;
-use base Webqq::Qun;
+use base qw(Webqq::Qun);
 our $VERSION = "1.5";
 1;

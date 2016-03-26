@@ -1,5 +1,7 @@
 Webqq::Qun v1.5
 ========================
+该项目已停止维护，相关功能已经集成到 Mojo::Webqq https://github.com/sjdy521/Mojo-Webqq
+
 腾讯提供了基于web的群管理方式，可以参见页面http://qun.qq.com/member.html
 
 可进行群成员添加、查询、筛选、设置管理员、取消管理员、设置群名片等常用功能
